@@ -1,6 +1,7 @@
 extends Node
 
 const PersistentStore := preload("res://scripts/classes/PersistentStore.gd")
+const RUN_SCENE: PackedScene = preload("res://scenes/run.tscn")
 
 signal state_changed(state_key, substate)
 
@@ -8,11 +9,17 @@ var persistent_store:Resource
 var state: Dictionary = {
   "client_view": ViewController.CLIENT_VIEWS.NONE,
   "game": "",
+  "debug": true,
  }
+
+func end_game() -> void:
+  ViewController.set_client_view(ViewController.CLIENT_VIEWS.MAIN_MENU, ViewController.TRANSITION_TYPES.FADE)
+  set_state("game", GameConstants.GAME_OVER)
 
 func start_game() -> void:
   ViewController.set_client_view(ViewController.CLIENT_VIEWS.NONE)
   set_state("game", GameConstants.GAME_STARTING)
+  $"/root".add_child(RUN_SCENE.instantiate())
 
 func save_persistent_store() -> void:
   if ResourceSaver.save(persistent_store, ClientConstants.CLIENT_PERSISTENT_STORE_PATH) != OK:
@@ -26,7 +33,10 @@ func set_state(state_key: String, new_state) -> void:
 func _initialize():
   set_state("game", GameConstants.GAME_OVER)
 
-  (func(): ViewController.set_client_view(ViewController.CLIENT_VIEWS.SPLASH, ViewController.TRANSITION_TYPES.FADE)).call_deferred()
+  if (state.debug):
+    (func(): ViewController.set_client_view(ViewController.CLIENT_VIEWS.MAIN_MENU, ViewController.TRANSITION_TYPES.FADE)).call_deferred()
+  else:
+    (func(): ViewController.set_client_view(ViewController.CLIENT_VIEWS.SPLASH, ViewController.TRANSITION_TYPES.FADE)).call_deferred()
 
 func _ready():
   if FileAccess.file_exists(ClientConstants.CLIENT_PERSISTENT_STORE_PATH):

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://s5pif0aogjhp"]
+
+[ext_resource type="Script" path="res://scripts/controllers/RunController.gd" id="1_1bbyh"]
+[ext_resource type="PackedScene" uid="uid://b2udgr1psl1sj" path="res://lib/BetterCam.tscn" id="1_a1miq"]
+[ext_resource type="PackedScene" uid="uid://vqyckwxhkax0" path="res://actors/Player.tscn" id="2_yl1sk"]
+[ext_resource type="Texture2D" uid="uid://4typrc2p2rra" path="res://icon.png" id="3_jcd7f"]
+[ext_resource type="PackedScene" uid="uid://c5key3a0qe5jr" path="res://actors/enemies/BasicKamikaze.tscn" id="5_efuvt"]
+
+[node name="run" type="Node2D"]
+script = ExtResource("1_1bbyh")
+
+[node name="BetterCam" parent="." groups=["better_camera"] instance=ExtResource("1_a1miq")]
+
+[node name="Player" parent="." instance=ExtResource("2_yl1sk")]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+texture = ExtResource("3_jcd7f")
+
+[node name="Enemy" parent="." instance=ExtResource("5_efuvt")]
+position = Vector2(-55, 184)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_efuvt")]
+position = Vector2(116, 124)
+
+[node name="Enemy3" parent="." instance=ExtResource("5_efuvt")]
+position = Vector2(94, -27)
+
+[node name="Enemy4" parent="." instance=ExtResource("5_efuvt")]
+position = Vector2(-143, -114)
