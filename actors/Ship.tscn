@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://couplwfrtf7s6"]
+
+[ext_resource type="Texture2D" uid="uid://4typrc2p2rra" path="res://icon.png" id="1_q377v"]
+[ext_resource type="Script" path="res://actors/Ship.gd" id="1_ut5b0"]
+[ext_resource type="Resource" uid="uid://cifgmmymjs6xl" path="res://data/modules/basic_engine.tres" id="2_lvbo3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15lqi"]
+radius = 29.0
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_ut5b0")
+starting_modules = Array[Resource("res://data/module.gd")]([ExtResource("2_lvbo3"), ExtResource("2_lvbo3")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q377v")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_15lqi")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://bfm3lg884ma35"]
+
+[ext_resource type="Script" path="res://data/module.gd" id="1_unh2b"]
+
+[resource]
+script = ExtResource("1_unh2b")
+type = 1
+weight = 10.0

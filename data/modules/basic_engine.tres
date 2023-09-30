@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://cifgmmymjs6xl"]
+
+[ext_resource type="Script" path="res://data/module.gd" id="1_ljfn7"]
+
+[resource]
+script = ExtResource("1_ljfn7")
+thrust = 5.0
+type = 0
+weight = 10.0

@@ -1,17 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfjaqu2i4i63i"]
+[gd_scene load_steps=10 format=3 uid="uid://bfjaqu2i4i63i"]
 
 [ext_resource type="Script" path="res://views/FPS.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://dngu6lih2xxlo" path="res://actors/Player.tscn" id="1_4pt6e"]
+[ext_resource type="PackedScene" uid="uid://vqyckwxhkax0" path="res://actors/Player.tscn" id="1_4pt6e"]
 [ext_resource type="Texture2D" uid="uid://4typrc2p2rra" path="res://icon.png" id="2"]
 [ext_resource type="Theme" uid="uid://co811ue55i33m" path="res://resources/base_theme.tres" id="2_1ffbx"]
 [ext_resource type="Script" path="res://views/MainMenu.gd" id="4"]
 [ext_resource type="PackedScene" path="res://lib/BetterCam.tscn" id="5"]
 [ext_resource type="Script" path="res://views/Splash.gd" id="6"]
 [ext_resource type="Script" path="res://views/About.gd" id="7_xk6j8"]
+[ext_resource type="PackedScene" uid="uid://couplwfrtf7s6" path="res://actors/Ship.tscn" id="8_md4cg"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_4pt6e")]
 
 [node name="UIRoot" type="CanvasLayer" parent="."]
 
@@ -127,3 +126,9 @@ text = "Main Menu"
 key_movement = false
 mouse_drag = false
 zoom_max = 1.0
+
+[node name="Ship" parent="." instance=ExtResource("8_md4cg")]
+modulate = Color(1, 0, 0.0156863, 1)
+position = Vector2(152, -5)
+
+[node name="Player" parent="." instance=ExtResource("1_4pt6e")]
