@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_unh2b")
+structural_integrity = 1.0
+thrust = 0.0
 type = 1
 weight = 10.0

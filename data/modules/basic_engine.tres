@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_ljfn7")
+structural_integrity = 1.0
 thrust = 5.0
 type = 0
 weight = 10.0

@@ -1,21 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://vqyckwxhkax0"]
+[gd_scene load_steps=7 format=3 uid="uid://vqyckwxhkax0"]
 
 [ext_resource type="Script" path="res://scripts/controllers/PlayerController.gd" id="1_hg873"]
 [ext_resource type="PackedScene" uid="uid://couplwfrtf7s6" path="res://actors/Ship.tscn" id="2_nnnpa"]
 [ext_resource type="Resource" uid="uid://cifgmmymjs6xl" path="res://data/modules/basic_engine.tres" id="3_k3r4s"]
 [ext_resource type="Theme" uid="uid://co811ue55i33m" path="res://resources/base_theme.tres" id="4_pcx4e"]
+[ext_resource type="Resource" uid="uid://b6vtta7b4mqig" path="res://data/modules/basic_armor.tres" id="4_vajus"]
 
 [sub_resource type="Curve" id="Curve_owvtl"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="Player" type="Node2D"]
+z_index = 1
 script = ExtResource("1_hg873")
 camera_look_distance_curve = SubResource("Curve_owvtl")
 
 [node name="Ship" parent="." groups=["player"] instance=ExtResource("2_nnnpa")]
 unique_name_in_owner = true
-starting_modules = Array[Resource("res://data/module.gd")]([ExtResource("3_k3r4s")])
+starting_modules = Array[Resource("res://data/module.gd")]([ExtResource("3_k3r4s"), ExtResource("4_vajus")])
+
+[node name="Area2D" parent="Ship" index="1"]
+collision_mask = 2
 
 [node name="PID" type="Label" parent="Ship"]
 unique_name_in_owner = true
@@ -28,3 +33,5 @@ theme = ExtResource("4_pcx4e")
 text = "PID"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[editable path="Ship"]

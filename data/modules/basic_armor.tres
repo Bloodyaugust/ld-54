@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://b6vtta7b4mqig"]
+
+[ext_resource type="Script" path="res://data/module.gd" id="1_67lu2"]
+
+[resource]
+script = ExtResource("1_67lu2")
+structural_integrity = 10.0
+thrust = 0.0
+type = 1
+weight = 0.0
