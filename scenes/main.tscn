@@ -134,3 +134,9 @@ modulate = Color(0.243137, 0.243137, 0.243137, 1)
 texture = ExtResource("2")
 
 [node name="Enemy" parent="." instance=ExtResource("9_vjdrj")]
+
+[node name="Enemy2" parent="." instance=ExtResource("9_vjdrj")]
+position = Vector2(-267, -152)
+
+[node name="Enemy3" parent="." instance=ExtResource("9_vjdrj")]
+position = Vector2(53, -187)
