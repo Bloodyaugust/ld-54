@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" path="res://lib/BetterCam.tscn" id="5"]
 [ext_resource type="Script" path="res://views/Splash.gd" id="6"]
 [ext_resource type="Script" path="res://views/About.gd" id="7_xk6j8"]
-[ext_resource type="PackedScene" uid="uid://couplwfrtf7s6" path="res://actors/Ship.tscn" id="8_md4cg"]
+[ext_resource type="PackedScene" uid="uid://c5key3a0qe5jr" path="res://actors/enemies/BasicKamikaze.tscn" id="9_vjdrj"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -133,6 +133,4 @@ zoom_max = 1.0
 modulate = Color(0.243137, 0.243137, 0.243137, 1)
 texture = ExtResource("2")
 
-[node name="Ship" parent="." instance=ExtResource("8_md4cg")]
-modulate = Color(1, 0, 0.0156863, 1)
-position = Vector2(96, -40)
+[node name="Enemy" parent="." instance=ExtResource("9_vjdrj")]
