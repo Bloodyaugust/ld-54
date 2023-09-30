@@ -9,7 +9,7 @@ const BRAKING_MOUSE_DISTANCE_MAX: float = 50.0
 @onready var _better_camera: Camera2D = get_tree().get_first_node_in_group("better_camera")
 @onready var _ship: Node2D = %Ship
 
-func _physics_process(delta):
+func _physics_process(_delta):
   var _look_direction: Vector2 = (get_global_mouse_position() - _ship.global_position).normalized()
   var _look_distance: float = camera_look_distance_curve.sample(_ship.global_position.distance_to(get_global_mouse_position()) / CAMERA_LOOK_MAX_AT_DISTANCE) * CAMERA_LOOK_MAX_DISTANCE
 

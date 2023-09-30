@@ -101,7 +101,7 @@ func _physics_process(delta) -> void:
   global_rotation += _angular_velocity * delta
   global_translate(_velocity)
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
   if _integrity <= 0.0 && !_destroyed:
     _destroyed = true
     _area2D.monitorable = false

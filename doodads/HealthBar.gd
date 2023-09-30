@@ -11,7 +11,7 @@ func set_health(health_scale: float) -> void:
   _health_scale = health_scale
   _health_bar_green.custom_minimum_size = Vector2(_starting_bar_width * _health_scale, _health_bar_green.custom_minimum_size.y)
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
   rotation = -_parent.global_rotation
   global_position = _parent.global_position + _starting_offset_from_parent
 
