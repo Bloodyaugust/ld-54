@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_67lu2")
+reload_time = 0.0
 structural_integrity = 10.0
 thrust = 0.0
-type = 1
+type = 2
 weight = 0.0

@@ -9,6 +9,7 @@ script = ExtResource("1_0dxtj")
 [node name="Ship" parent="." instance=ExtResource("1_lv23b")]
 unique_name_in_owner = true
 position = Vector2(96, -40)
+team = 2
 
 [node name="Sprite2D" parent="Ship" index="0"]
 modulate = Color(1, 0.0117647, 0.027451, 1)

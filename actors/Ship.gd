@@ -10,8 +10,10 @@ const THRUST_MIN: float = 1.0
 const THRUST_MAX_SPEED_MODIFIER: float = 0.5
 const THRUST_TO_ANGULAR_SCALAR: float = 2.75
 const MASS_MAX: float = 100.0
+const WEAPON_CONTROLLER_SCRIPT: Script = preload("res://scripts/controllers/WeaponController.gd")
 
 @export var starting_modules: Array[ModuleData]
+@export var team: int = 1
 
 var move_target: Vector2 = Vector2.ZERO
 var pid_output: float = 0.0
@@ -40,6 +42,11 @@ func add_module(module: ModuleData) -> void:
   match module.type:
     GameConstants.MODULE_TYPES.ENGINE:
       _thrust += module.thrust
+    GameConstants.MODULE_TYPES.WEAPON:
+      var _new_weapon = WEAPON_CONTROLLER_SCRIPT.new()
+      _new_weapon.data = module
+      
+      add_child(_new_weapon)
 
 func get_damage() -> float:
   return _integrity
