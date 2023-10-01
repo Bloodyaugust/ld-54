@@ -10,6 +10,10 @@
 script = ExtResource("1_1bbyh")
 
 [node name="BetterCam" parent="." groups=["better_camera"] instance=ExtResource("1_a1miq")]
+camera_zoom_speed = 0.0
+key_movement = false
+mouse_drag = false
+zoom_max = 1.0
 
 [node name="Player" parent="." instance=ExtResource("2_yl1sk")]
 unique_name_in_owner = true

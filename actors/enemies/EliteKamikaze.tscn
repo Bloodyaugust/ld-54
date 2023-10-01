@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk6p87spxgvka"]
+
+[ext_resource type="Script" path="res://scripts/controllers/EnemyController.gd" id="1_pfyhs"]
+[ext_resource type="PackedScene" uid="uid://couplwfrtf7s6" path="res://actors/Ship.tscn" id="2_idv7b"]
+[ext_resource type="Resource" uid="uid://cifgmmymjs6xl" path="res://data/modules/basic_engine.tres" id="3_05ey8"]
+[ext_resource type="Resource" uid="uid://b6vtta7b4mqig" path="res://data/modules/basic_armor.tres" id="4_ewpmj"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_pfyhs")
+
+[node name="Ship" parent="." groups=["enemies"] instance=ExtResource("2_idv7b")]
+unique_name_in_owner = true
+starting_modules = Array[Resource("res://data/module.gd")]([ExtResource("3_05ey8"), ExtResource("3_05ey8"), ExtResource("4_ewpmj"), ExtResource("3_05ey8")])
+team = 2
+scrap = 2.0
+
+[node name="Sprite2D" parent="Ship" index="0"]
+modulate = Color(1, 0.0117647, 0.027451, 1)
+
+[node name="Area2D" parent="Ship" index="1"]
+collision_layer = 2
+
+[editable path="Ship"]

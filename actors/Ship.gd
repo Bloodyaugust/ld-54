@@ -50,6 +50,7 @@ func add_module(module: ModuleData) -> void:
     GameConstants.MODULE_TYPES.WEAPON:
       var _new_weapon = WEAPON_CONTROLLER_SCRIPT.new()
       _new_weapon.data = module
+      _new_weapon.team = team
 
       _weapons_container.add_child(_new_weapon)
 
