@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfjaqu2i4i63i"]
+[gd_scene load_steps=12 format=3 uid="uid://bfjaqu2i4i63i"]
 
 [ext_resource type="Script" path="res://views/FPS.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://4typrc2p2rra" path="res://icon.png" id="2"]
@@ -22,6 +22,18 @@ func _on_state_changed(state_key, substate):
   match state_key:
     \"wave\":
       text = \"wave: %s\" % substate
+
+func _ready():
+  Store.state_changed.connect(self._on_state_changed)
+"
+
+[sub_resource type="GDScript" id="GDScript_mvdyr"]
+script/source = "extends Label
+
+func _on_state_changed(state_key, substate):
+  match state_key:
+    \"kills\":
+      text = \"kills: %s\" % substate
 
 func _ready():
   Store.state_changed.connect(self._on_state_changed)
@@ -104,20 +116,25 @@ theme_override_constants/margin_top = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/FPS"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UIRoot/FPS/VBoxContainer"]
+[node name="FPS" type="Label" parent="UIRoot/FPS/VBoxContainer"]
 layout_mode = 2
 text = "144 FPS"
 script = ExtResource("1")
 
-[node name="Label2" type="Label" parent="UIRoot/FPS/VBoxContainer"]
+[node name="Enemies" type="Label" parent="UIRoot/FPS/VBoxContainer"]
 layout_mode = 2
 text = "Enemies: 0"
 script = SubResource("GDScript_tj7yk")
 
-[node name="Label3" type="Label" parent="UIRoot/FPS/VBoxContainer"]
+[node name="Wave" type="Label" parent="UIRoot/FPS/VBoxContainer"]
 layout_mode = 2
 text = "Enemies: 0"
 script = SubResource("GDScript_4k4id")
+
+[node name="Kills" type="Label" parent="UIRoot/FPS/VBoxContainer"]
+layout_mode = 2
+text = "Enemies: 0"
+script = SubResource("GDScript_mvdyr")
 
 [node name="Splash" type="ColorRect" parent="UIRoot"]
 visible = false
