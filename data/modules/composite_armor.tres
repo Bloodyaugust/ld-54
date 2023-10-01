@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://b0k21bktgnk86"]
+
+[ext_resource type="Script" path="res://data/module.gd" id="1_q2fie"]
+
+[resource]
+script = ExtResource("1_q2fie")
+cost = 25
+description = "Gives slightly more integrity than its predecessor, but at a much higher cost, while saving on weight."
+name = "Composite Armor"
+radius = 0.0
+reload_time = 0.0
+structural_integrity = 6.0
+thrust = 0.0
+type = 2
+weight = 8.0

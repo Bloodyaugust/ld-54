@@ -7,7 +7,6 @@
 radius = 8.0
 
 [node name="CannonProjectile" type="Node2D"]
-position = Vector2(-75, 9)
 script = ExtResource("1_4i5tt")
 speed = 800.0
 time_to_live = 0.5

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://e8m3gy7nlh44"]
+
+[ext_resource type="Script" path="res://data/module.gd" id="1_a86pn"]
+
+[resource]
+script = ExtResource("1_a86pn")
+cost = 45
+description = "Extremely expensive, but with a _ton_ of thrust for the weight."
+name = "Advanced Engine"
+radius = 0.0
+reload_time = 0.0
+structural_integrity = 2.0
+thrust = 10.0
+type = 0
+weight = 8.0

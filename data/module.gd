@@ -2,7 +2,7 @@ extends Resource
 class_name ModuleData
 
 @export var cost: int
-@export var description: String
+@export_multiline var description: String
 @export var name: String
 @export var projectile_scene: PackedScene
 @export var radius: float

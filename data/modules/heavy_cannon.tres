@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=3 format=3 uid="uid://clvssjmptwdmn"]
+
+[ext_resource type="PackedScene" uid="uid://b3nfmuqxvhul3" path="res://actors/projectiles/HeavyCannon.tscn" id="1_hn5kc"]
+[ext_resource type="Script" path="res://data/module.gd" id="2_jpid7"]
+
+[resource]
+script = ExtResource("2_jpid7")
+cost = 30
+description = "This big boi shoots large projectiles that move quickly and deal tons of damage, but surviving the reload time is tricky. Quite massive, but also gives impressive integrity."
+name = "Heavy Cannon"
+projectile_scene = ExtResource("1_hn5kc")
+radius = 500.0
+reload_time = 2.0
+structural_integrity = 5.0
+thrust = 0.0
+type = 1
+weight = 50.0
