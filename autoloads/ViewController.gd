@@ -17,12 +17,12 @@ enum TRANSITION_TYPES {
 
 var view_instances: Dictionary = {}
 
-var _last_transition_type: TRANSITION_TYPES = TRANSITION_TYPES.SLIDE
+var _last_transition_type: TRANSITION_TYPES = TRANSITION_TYPES.FADE
 
 func register_view(view: CLIENT_VIEWS, instance: Control) -> void:
   view_instances[view] = instance
 
-func set_client_view(view: CLIENT_VIEWS, transition: TRANSITION_TYPES = TRANSITION_TYPES.SLIDE) -> void:
+func set_client_view(view: CLIENT_VIEWS, transition: TRANSITION_TYPES = TRANSITION_TYPES.FADE) -> void:
   var _old_instance: CLIENT_VIEWS = Store.state.client_view
   var _view_tween: Tween = get_tree().create_tween().set_trans(Tween.TRANS_QUAD)
 
