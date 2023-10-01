@@ -48,7 +48,7 @@ func _physics_process(_delta) -> void:
       _target = null
 
 func _process(delta) -> void:
-  if !_parent_ship.get_destroyed():
+  if !_parent_ship.get_destroyed() && Store.state["game"] == GameConstants.GAME_IN_PROGRESS:
     _time_to_reload -= delta
 
     if _time_to_reload <= 0.0:

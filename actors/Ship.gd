@@ -67,7 +67,7 @@ func _on_area2D_area_entered(entering_area: Area2D) -> void:
   damage(_entering_area_parent.get_damage())
 
 func _physics_process(delta) -> void:
-  if !_destroyed:
+  if !_destroyed && Store.state["game"] == GameConstants.GAME_IN_PROGRESS:
     if _braking:
       var _new_velocity_length: float = max(_velocity.length() - (_thrust * delta), 0.0)
 
@@ -104,8 +104,9 @@ func _physics_process(delta) -> void:
       var _new_velocity_length: float = min(_velocity.length(), _thrust * THRUST_MAX_SPEED_MODIFIER)
       _velocity = _velocity.normalized() * _new_velocity_length
 
-  global_rotation += _angular_velocity * delta
-  global_translate(_velocity)
+  if Store.state["game"] == GameConstants.GAME_IN_PROGRESS:
+    global_rotation += _angular_velocity * delta
+    global_translate(_velocity)
 
 func _process(_delta) -> void:
   if _integrity <= 0.0 && !_destroyed:
