@@ -184,7 +184,9 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_type_variation = &"LargeLabel"
 text = "Made by: Greyson Richey
-Made with Godot"
+Made with Godot
+Art by Kenney.nl"
+horizontal_alignment = 1
 
 [node name="MainMenu" type="Button" parent="UIRoot/About/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

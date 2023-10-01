@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://nwpwwjiyglqf" path="res://doodads/HealthBar.tscn" id="4_kuxp5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_15lqi"]
-radius = 29.0
+radius = 27.2947
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_ut5b0")

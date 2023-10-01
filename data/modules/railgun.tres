@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=3 format=3 uid="uid://copxh88so4t6q"]
+
+[ext_resource type="PackedScene" uid="uid://bl26p64aiqqxw" path="res://actors/projectiles/RailgunSlug.tscn" id="1_3y3wa"]
+[ext_resource type="Script" path="res://data/module.gd" id="2_vlmea"]
+
+[resource]
+script = ExtResource("2_vlmea")
+cost = 60
+description = "Using copious amounts of energy, this weapon prioritizes speed and precision, with rounds capable of massive damage. Integrated tightly with the structure of a ship, it doesn't contribute much mass (or integrity), either."
+name = "Railgun"
+projectile_scene = ExtResource("1_3y3wa")
+radius = 600.0
+reload_time = 1.0
+structural_integrity = 2.0
+thrust = 0.0
+type = 1
+weight = 25.0

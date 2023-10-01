@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://dcd4mimpufgk6"]
+
+[ext_resource type="Script" path="res://data/module.gd" id="1_gdmb6"]
+
+[resource]
+script = ExtResource("1_gdmb6")
+cost = 50
+description = "Highly advanced materials allow for armor that is ultra-light, and ultra-strong. This versatility comes at a high price, however."
+name = "Nanotech Armor"
+radius = 0.0
+reload_time = 0.0
+structural_integrity = 20.0
+thrust = 0.0
+type = 2
+weight = 10.0

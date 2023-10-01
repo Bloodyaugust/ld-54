@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1hohd0niejee"]
 
 [ext_resource type="Script" path="res://actors/Projectile.gd" id="1_4i5tt"]
-[ext_resource type="Texture2D" uid="uid://4typrc2p2rra" path="res://icon.png" id="2_8khqq"]
+[ext_resource type="Texture2D" uid="uid://dm7qqjj0uihcr" path="res://sprites/projectiles/spaceMissiles_015.png" id="2_51ldp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cp2mk"]
 radius = 8.0
@@ -12,8 +12,8 @@ speed = 800.0
 time_to_live = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_8khqq")
+scale = Vector2(0.6, 0.75)
+texture = ExtResource("2_51ldp")
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true

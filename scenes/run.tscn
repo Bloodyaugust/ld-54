@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://s5pif0aogjhp"]
+[gd_scene load_steps=11 format=3 uid="uid://s5pif0aogjhp"]
 
 [ext_resource type="Script" path="res://scripts/controllers/RunController.gd" id="1_1bbyh"]
 [ext_resource type="PackedScene" uid="uid://b2udgr1psl1sj" path="res://lib/BetterCam.tscn" id="1_a1miq"]
 [ext_resource type="PackedScene" uid="uid://vqyckwxhkax0" path="res://actors/Player.tscn" id="2_yl1sk"]
-[ext_resource type="Texture2D" uid="uid://4typrc2p2rra" path="res://icon.png" id="3_jcd7f"]
+[ext_resource type="Texture2D" uid="uid://cfb4csx1yv0nt" path="res://sprites/background/spaceStation_021.png" id="4_eyre7"]
+[ext_resource type="Texture2D" uid="uid://4glfg8ebukkm" path="res://sprites/background/spaceBuilding_015.png" id="5_hpwwl"]
 [ext_resource type="Script" path="res://scripts/controllers/SpawnController.gd" id="6_32p7p"]
+[ext_resource type="Texture2D" uid="uid://cjqd7pespefsu" path="res://sprites/background/spaceBuilding_024.png" id="6_mme1l"]
+[ext_resource type="Texture2D" uid="uid://bkcv4hk48m2wq" path="res://sprites/background/spaceMeteors_001.png" id="7_d68hn"]
+[ext_resource type="Texture2D" uid="uid://c7aja4hckk1d" path="res://sprites/background/spaceMeteors_002.png" id="8_ndel2"]
+[ext_resource type="Texture2D" uid="uid://dlwrf8bko253m" path="res://sprites/background/spaceMeteors_004.png" id="9_cr3cj"]
 
 [node name="run" type="Node2D"]
 script = ExtResource("1_1bbyh")
@@ -20,7 +25,44 @@ unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.458824, 0.458824, 0.458824, 1)
-texture = ExtResource("3_jcd7f")
+z_index = -1
+scale = Vector2(4, 4)
+texture = ExtResource("4_eyre7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+z_index = -1
+position = Vector2(-627, -979)
+scale = Vector2(4, 4)
+texture = ExtResource("5_hpwwl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+z_index = -1
+position = Vector2(1445, 428)
+scale = Vector2(4, 4)
+texture = ExtResource("6_mme1l")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+z_index = -1
+position = Vector2(-1602, 93)
+scale = Vector2(4, 4)
+texture = ExtResource("7_d68hn")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+z_index = -1
+position = Vector2(213, 1236)
+scale = Vector2(4, 4)
+texture = ExtResource("8_ndel2")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+z_index = -1
+position = Vector2(1364, -700)
+scale = Vector2(4, 4)
+texture = ExtResource("9_cr3cj")
 
 [node name="SpawnController" type="Node2D" parent="."]
 script = ExtResource("6_32p7p")

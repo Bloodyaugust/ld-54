@@ -8,6 +8,8 @@ const MODULES: Array[ModuleData] = [
   preload("res://data/modules/gatling_cannon.tres"),
   preload("res://data/modules/heavy_cannon.tres"),
   preload("res://data/modules/advanced_engine.tres"),
+  preload("res://data/modules/nanotech_armor.tres"),
+  preload("res://data/modules/railgun.tres"),
 ]
 const SHIP_MODULE_COMPONENT: PackedScene = preload("res://views/components/ShipModule.tscn")
 const STORE_MODULE_COMPONENT: PackedScene = preload("res://views/components/StoreModule.tscn")

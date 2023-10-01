@@ -144,7 +144,7 @@ func _process(_delta) -> void:
     _area2D.monitorable = false
     _area2D.monitoring = false
     died.emit()
-    modulate = Color.BLACK
+    modulate = Color.DIM_GRAY
     _health_bar.visible = false
     Store.set_state("kills", Store.state.kills + 1)
     Store.set_state("scrap", Store.state.scrap + scrap)

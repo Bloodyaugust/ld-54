@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl26p64aiqqxw"]
+
+[ext_resource type="Script" path="res://actors/Projectile.gd" id="1_gjhsm"]
+[ext_resource type="Texture2D" uid="uid://cdtx3t8mw5k1m" path="res://sprites/projectiles/spaceMissiles_024.png" id="2_i6vc0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cp2mk"]
+radius = 11.0
+
+[node name="RailgunSlug" type="Node2D"]
+script = ExtResource("1_gjhsm")
+damage = 7.0
+speed = 1800.0
+time_to_live = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.45, 0.833333)
+texture = ExtResource("2_i6vc0")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_cp2mk")

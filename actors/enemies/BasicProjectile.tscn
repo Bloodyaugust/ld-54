@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwuaige7l4i6i"]
+[gd_scene load_steps=6 format=3 uid="uid://dwuaige7l4i6i"]
 
 [ext_resource type="Script" path="res://scripts/controllers/EnemyController.gd" id="1_tsdky"]
 [ext_resource type="PackedScene" uid="uid://couplwfrtf7s6" path="res://actors/Ship.tscn" id="2_c4dvf"]
 [ext_resource type="Resource" uid="uid://cifgmmymjs6xl" path="res://data/modules/basic_engine.tres" id="3_bwaam"]
 [ext_resource type="Resource" uid="uid://bfm3lg884ma35" path="res://data/modules/basic_cannon.tres" id="4_p6lpw"]
+[ext_resource type="Texture2D" uid="uid://d4apc455ykdgp" path="res://sprites/ships/spaceShips_005.png" id="5_iarqg"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_tsdky")
@@ -15,7 +16,8 @@ team = 2
 scrap = 3.0
 
 [node name="Sprite2D" parent="Ship" index="0"]
-modulate = Color(1, 0.0117647, 0.027451, 1)
+scale = Vector2(0.702381, 0.441176)
+texture = ExtResource("5_iarqg")
 
 [node name="Area2D" parent="Ship" index="1"]
 collision_layer = 2
