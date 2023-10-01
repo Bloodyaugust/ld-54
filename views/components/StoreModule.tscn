@@ -16,14 +16,15 @@ layout_mode = 2
 [node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "Module Name"
 
-[node name="Type" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Weight" type="Label" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Module Type"
+text = "Module Weight"
 
-[node name="Weight" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Integrity" type="Label" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Module Weight"

@@ -275,30 +275,105 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats"]
 layout_mode = 2
 
-[node name="PlayerScrap" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerScrap" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "Used for buying modules"
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
 text = "Scrap: 1"
 
-[node name="ShipIntegrity" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+[node name="Label" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Used for buying modules"
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
+text = "ℹ"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+layout_mode = 2
+
+[node name="ShipIntegrity" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "How much damage you can take"
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
 text = "Integrity: 1"
 
-[node name="ShipWeight" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+[node name="Label2" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "How much damage you can take"
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
+text = "ℹ"
+horizontal_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+layout_mode = 2
+
+[node name="ShipWeight" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "How \"heavy\" your ship is, cannot exceed 100"
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
 text = "Mass: 1"
 
-[node name="ShipThrust" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+[node name="Label3" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "How \"heavy\" your ship is, cannot exceed 100"
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
+text = "ℹ"
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+layout_mode = 2
+
+[node name="ShipThrust" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "Affects top speed, acceleration, and turn rate."
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
 text = "Thrust: 1"
 
-[node name="ShipWeapons" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+[node name="Label4" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Affects top speed, acceleration, and turn rate."
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
+text = "ℹ"
+horizontal_alignment = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+layout_mode = 2
+
+[node name="ShipWeapons" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer5"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "Number of weapons you have. Better be more than 0!"
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
 text = "Weapons: 1"
+
+[node name="Label5" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Number of weapons you have. Better be more than 0!"
+mouse_filter = 0
+theme_override_font_sizes/font_size = 20
+text = "ℹ"
+horizontal_alignment = 2
 
 [node name="VSeparator" type="VSeparator" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
