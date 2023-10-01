@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfjaqu2i4i63i"]
+[gd_scene load_steps=9 format=3 uid="uid://bfjaqu2i4i63i"]
 
 [ext_resource type="Script" path="res://views/FPS.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://4typrc2p2rra" path="res://icon.png" id="2"]
@@ -11,7 +11,19 @@
 script/source = "extends Label
 
 func _process(_delta) -> void:
-  text = \"Enemies: %s\" % get_tree().get_nodes_in_group(\"enemies\").size()
+  text = \"Enemies: %s\" % get_tree().get_nodes_in_group(\"enemies\").filter(func(enemy): return !enemy.get_destroyed()).size()
+"
+
+[sub_resource type="GDScript" id="GDScript_g8pj5"]
+script/source = "extends Label
+
+func _on_state_changed(state_key, substate):
+  match state_key:
+    \"kills\":
+      text = \"Kills: %s\" % substate
+
+func _ready():
+  Store.state_changed.connect(_on_state_changed)
 "
 
 [node name="Node2D" type="Node2D"]
@@ -78,6 +90,11 @@ script = ExtResource("1")
 layout_mode = 2
 text = "Enemies: 0"
 script = SubResource("GDScript_tj7yk")
+
+[node name="Label3" type="Label" parent="UIRoot/FPS/VBoxContainer"]
+layout_mode = 2
+text = "Enemies: 0"
+script = SubResource("GDScript_g8pj5")
 
 [node name="Splash" type="ColorRect" parent="UIRoot"]
 visible = false

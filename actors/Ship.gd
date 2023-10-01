@@ -110,6 +110,7 @@ func _process(_delta) -> void:
     _area2D.monitorable = false
     _area2D.monitoring = false
     died.emit()
+    Store.set_state("kills", Store.state.kills + 1)
 
 func _ready() -> void:
   _area2D.area_entered.connect(_on_area2D_area_entered)

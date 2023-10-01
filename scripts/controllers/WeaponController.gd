@@ -10,7 +10,7 @@ var _target = null
 var _time_to_reload: float = 0.0
 
 func _draw() -> void:
-  draw_arc(Vector2.ZERO, data.range, 0.0, 2*PI, 32, Color.GREEN)
+  draw_arc(Vector2.ZERO, data.radius, 0.0, 2*PI, 32, Color.GREEN)
 
 func _fire() -> void:
   var _new_projectile: Node2D = data.projectile_scene.instantiate()
@@ -26,7 +26,7 @@ func _on_target_died() -> void:
   _target.died.disconnect(_on_target_died)
   _target = null
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
   if !_parent_ship.get_destroyed():
     if !GDUtil.reference_safe(_target):
       var _physics_shape_query_params: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
@@ -43,7 +43,7 @@ func _physics_process(delta) -> void:
           _target = _collision.collider.get_parent()
           _target.died.connect(_on_target_died)
           break
-    elif global_position.distance_to(_target.global_position) > data.range:
+    elif global_position.distance_to(_target.global_position) > data.radius:
       _target.died.disconnect(_on_target_died)
       _target = null
 
@@ -59,4 +59,4 @@ func _process(delta) -> void:
 
 func _ready() -> void:
   _range_shape = CircleShape2D.new()
-  _range_shape.radius = data.range
+  _range_shape.radius = data.radius
