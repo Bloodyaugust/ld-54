@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2udgr1psl1sj" path="res://lib/BetterCam.tscn" id="1_a1miq"]
 [ext_resource type="PackedScene" uid="uid://vqyckwxhkax0" path="res://actors/Player.tscn" id="2_yl1sk"]
 [ext_resource type="Texture2D" uid="uid://4typrc2p2rra" path="res://icon.png" id="3_jcd7f"]
-[ext_resource type="PackedScene" uid="uid://c5key3a0qe5jr" path="res://actors/enemies/BasicKamikaze.tscn" id="5_efuvt"]
+[ext_resource type="Script" path="res://scripts/controllers/SpawnController.gd" id="6_32p7p"]
 
 [node name="run" type="Node2D"]
 script = ExtResource("1_1bbyh")
@@ -18,11 +18,6 @@ unique_name_in_owner = true
 modulate = Color(0.458824, 0.458824, 0.458824, 1)
 texture = ExtResource("3_jcd7f")
 
-[node name="Enemy" parent="." instance=ExtResource("5_efuvt")]
-position = Vector2(-55, 184)
-
-[node name="Enemy2" parent="." instance=ExtResource("5_efuvt")]
-position = Vector2(-520, 212)
-
-[node name="Enemy3" parent="." instance=ExtResource("5_efuvt")]
-position = Vector2(365, -137)
+[node name="SpawnController" type="Node2D" parent="."]
+script = ExtResource("6_32p7p")
+spawn_interval = 1.0
