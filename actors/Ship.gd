@@ -48,6 +48,10 @@ func add_module(module: ModuleData) -> void:
       
       add_child(_new_weapon)
 
+func damage(amount: float) -> void:
+  _integrity -= clamp(amount, 0.0, INF)
+  _health_bar.set_health(_integrity / _integrity_max)
+
 func get_damage() -> float:
   return _integrity
   
@@ -60,8 +64,7 @@ func set_braking(braking: bool) -> void:
 func _on_area2D_area_entered(entering_area: Area2D) -> void:
   var _entering_area_parent: Node2D = entering_area.get_parent()
 
-  _integrity -= clamp(_entering_area_parent.get_damage(), 0.0, INF)
-  _health_bar.set_health(_integrity / _integrity_max)
+  damage(_entering_area_parent.get_damage())
 
 func _physics_process(delta) -> void:
   if !_destroyed:

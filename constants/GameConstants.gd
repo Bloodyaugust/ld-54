@@ -3,6 +3,8 @@ extends Node
 const GAME_IN_PROGRESS = "GAME_IN_PROGRESS"
 const GAME_OVER = "GAME_OVER"
 const GAME_STARTING = "GAME_STARTING"
+const SAFE_RADIUS: float = 1500.0
+const SAFE_RADIUS_LOSE_TIME: float = 5.0
 
 enum MODULE_TYPES {
   ENGINE,

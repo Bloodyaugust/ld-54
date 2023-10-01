@@ -10,12 +10,14 @@ var state: Dictionary = {
   "client_view": ViewController.CLIENT_VIEWS.NONE,
   "game": "",
   "debug": true,
-  "kills": 0
+  "kills": 0,
+  "player_safe": true,
  }
 
 func end_game() -> void:
   ViewController.set_client_view(ViewController.CLIENT_VIEWS.MAIN_MENU, ViewController.TRANSITION_TYPES.FADE)
   set_state("game", GameConstants.GAME_OVER)
+  set_state("player_safe", true)
 
 func start_game() -> void:
   ViewController.set_client_view(ViewController.CLIENT_VIEWS.NONE)
