@@ -9,6 +9,7 @@ const SHIP_MODULE_COMPONENT: PackedScene = preload("res://views/components/ShipM
 const STORE_MODULE_COMPONENT: PackedScene = preload("res://views/components/StoreModule.tscn")
 
 @onready var _next_wave: Button = %NextWave
+@onready var _player_scrap_label: Label = %PlayerScrap
 @onready var _ship_integrity_label: Label = %ShipIntegrity
 @onready var _ship_weight_label: Label = %ShipWeight
 @onready var _ship_thrust_label: Label = %ShipThrust
@@ -54,6 +55,8 @@ func _on_state_changed(state_key, substate):
             _on_player_modules_changed()
         GameConstants.GAME_OVER:
           _player_ship = null
+    "scrap":
+      _player_scrap_label.text = "Scrap: %s" % substate
 
 func _ready():
   Store.state_changed.connect(self._on_state_changed)

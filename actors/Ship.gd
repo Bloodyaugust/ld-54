@@ -10,12 +10,12 @@ const KD: float = 0.20
 const THRUST_MIN: float = 1.0
 const THRUST_MAX_SPEED_MODIFIER: float = 0.5
 const THRUST_TO_ANGULAR_SCALAR: float = 2.75
-const MASS_MAX: float = 100.0
 const MASS_MIN: float = 1.0
 const WEAPON_CONTROLLER_SCRIPT: Script = preload("res://scripts/controllers/WeaponController.gd")
 
 @export var starting_modules: Array[ModuleData]
 @export var team: int = 1
+@export var scrap: float = 1.0
 
 var move_target: Vector2 = Vector2.ZERO
 var pid_output: float = 0.0
@@ -141,6 +141,7 @@ func _process(_delta) -> void:
     _area2D.monitoring = false
     died.emit()
     Store.set_state("kills", Store.state.kills + 1)
+    Store.set_state("scrap", Store.state.scrap + scrap)
 
 func _ready() -> void:
   _area2D.area_entered.connect(_on_area2D_area_entered)

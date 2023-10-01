@@ -10,11 +10,17 @@ var module: ModuleData
 @onready var _module_weight_label: Label = %Weight
 @onready var _module_description_label: Label = %Description
 
+func _evaluate_button_enabled() -> void:
+  _buy_button.disabled = Store.state["scrap"] < module.cost || Store.state["mass"] + module.weight > GameConstants.MASS_MAX
+
 func _on_buy_pressed() -> void:
   bought.emit(module)
+  Store.set_state("scrap", Store.state["scrap"] - module.cost)
 
-func _on_state_changed(_state_key, _substate):
-  pass
+func _on_state_changed(state_key, substate):
+  match state_key:
+    "mass", "scrap":
+      _evaluate_button_enabled()
 
 func _ready():
   Store.state_changed.connect(self._on_state_changed)

@@ -21,6 +21,9 @@ func _exit_safe_radius() -> void:
   _in_safe_radius = false
   Store.set_state("player_safe", false)
 
+func _on_ship_modules_changed() -> void:
+  Store.set_state("mass", _ship._mass)
+
 func _physics_process(_delta):
   var _look_direction: Vector2 = (get_global_mouse_position() - _ship.global_position).normalized()
   var _look_distance: float = camera_look_distance_curve.sample(_ship.global_position.distance_to(get_global_mouse_position()) / CAMERA_LOOK_MAX_AT_DISTANCE) * CAMERA_LOOK_MAX_DISTANCE
@@ -47,3 +50,6 @@ func _process(delta) -> void:
       _ship.damage(_ship._integrity)
 
   %PID.text = "%s" % _ship.pid_output
+
+func _ready():
+  _ship.modules_changed.connect(_on_ship_modules_changed)

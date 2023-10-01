@@ -275,6 +275,11 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats"]
 layout_mode = 2
 
+[node name="PlayerScrap" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Scrap: 1"
+
 [node name="ShipIntegrity" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
