@@ -32,6 +32,8 @@ func _physics_process(delta) -> void:
     global_translate(Vector2(speed * delta * cos(global_rotation), speed * delta * sin(global_rotation)))
 
 func _ready():
+  _area2D.area_entered.connect(_on_area2D_area_entered)
+  
   if team == 1:
     _area2D.set_collision_layer_value(1, true)
     _area2D.set_collision_layer_value(2, false)

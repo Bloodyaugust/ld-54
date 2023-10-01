@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5key3a0qe5jr"]
+[gd_scene load_steps=4 format=3 uid="uid://c5key3a0qe5jr"]
 
 [ext_resource type="Script" path="res://scripts/controllers/EnemyController.gd" id="1_0dxtj"]
 [ext_resource type="PackedScene" uid="uid://couplwfrtf7s6" path="res://actors/Ship.tscn" id="1_lv23b"]
+[ext_resource type="Resource" uid="uid://cifgmmymjs6xl" path="res://data/modules/basic_engine.tres" id="3_kt3px"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_0dxtj")
@@ -9,6 +10,7 @@ script = ExtResource("1_0dxtj")
 [node name="Ship" parent="." groups=["enemies"] instance=ExtResource("1_lv23b")]
 unique_name_in_owner = true
 position = Vector2(96, -40)
+starting_modules = Array[Resource("res://data/module.gd")]([ExtResource("3_kt3px")])
 team = 2
 
 [node name="Sprite2D" parent="Ship" index="0"]
