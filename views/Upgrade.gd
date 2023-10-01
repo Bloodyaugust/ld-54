@@ -21,6 +21,7 @@ const STORE_MODULE_COMPONENT: PackedScene = preload("res://views/components/Stor
 @onready var _ship_thrust_label: Label = %ShipThrust
 @onready var _ship_weapons_label: Label = %ShipWeapons
 @onready var _ship_modules_list: VBoxContainer = %ShipModulesList
+@onready var _ship_texture_rect: TextureRect = %ShipTextureRect
 @onready var _store_modules_list: VBoxContainer = %StoreModulesList
 
 var _player_ship
@@ -63,6 +64,9 @@ func _on_state_changed(state_key, substate):
           _player_ship = null
     "scrap":
       _player_scrap_label.text = "Scrap: %s" % substate
+
+func _process(delta) -> void:
+  _ship_texture_rect.rotation += delta * PI / 2
 
 func _ready():
   Store.state_changed.connect(self._on_state_changed)

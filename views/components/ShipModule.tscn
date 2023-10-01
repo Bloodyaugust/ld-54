@@ -29,6 +29,9 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Module Integrity"
 
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
 [node name="Description" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
