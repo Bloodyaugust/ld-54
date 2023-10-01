@@ -25,6 +25,14 @@ func _on_next_wave_pressed() -> void:
 func _on_store_module_bought(module: ModuleData) -> void:
   _player_ship.add_module(module)
 
+func _on_player_modules_changed() -> void:
+  GDUtil.queue_free_children(_ship_modules_list)
+
+  _ship_integrity_label.text = "Integrity: %.1f" % _player_ship._integrity_max
+  _ship_weight_label.text = "Mass: %.1f" % _player_ship._mass
+  _ship_thrust_label.text = "Thrust: %.1f" % _player_ship._thrust
+  _ship_weapons_label.text = "Weapons: %s" % _player_ship._modules.filter(func(module: ModuleData): return module.type == GameConstants.MODULE_TYPES.WEAPON).size()
+
 func _on_state_changed(state_key, substate):
   match state_key:
     "game":
@@ -32,6 +40,8 @@ func _on_state_changed(state_key, substate):
         GameConstants.GAME_IN_PROGRESS:
           if !GDUtil.reference_safe(_player_ship):
             _player_ship = get_tree().get_first_node_in_group("player")
+            _player_ship.modules_changed.connect(_on_player_modules_changed)
+            _on_player_modules_changed()
         GameConstants.GAME_OVER:
           _player_ship = null
 

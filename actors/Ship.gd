@@ -1,6 +1,7 @@
 extends Node2D
 
 signal died
+signal modules_changed
 
 const INTEGRITY_MIN: float = 1.0
 const KP: float = 0.65
@@ -10,6 +11,7 @@ const THRUST_MIN: float = 1.0
 const THRUST_MAX_SPEED_MODIFIER: float = 0.5
 const THRUST_TO_ANGULAR_SCALAR: float = 2.75
 const MASS_MAX: float = 100.0
+const MASS_MIN: float = 1.0
 const WEAPON_CONTROLLER_SCRIPT: Script = preload("res://scripts/controllers/WeaponController.gd")
 
 @export var starting_modules: Array[ModuleData]
@@ -27,7 +29,8 @@ var _destroyed: bool = false
 var _integral: float = 0.0
 var _integrity: float = INTEGRITY_MIN
 var _integrity_max: float = INTEGRITY_MIN
-var _thrust: float
+var _thrust: float = THRUST_MIN
+var _mass: float = MASS_MIN
 var _modules: Array[ModuleData] = []
 var _previous_error: float = 0.0
 var _setpoint: float = 0.0
@@ -38,6 +41,7 @@ func add_module(module: ModuleData) -> void:
 
   _integrity_max += module.structural_integrity
   _integrity += module.structural_integrity
+  _mass += module.weight
 
   match module.type:
     GameConstants.MODULE_TYPES.ENGINE:
@@ -45,8 +49,10 @@ func add_module(module: ModuleData) -> void:
     GameConstants.MODULE_TYPES.WEAPON:
       var _new_weapon = WEAPON_CONTROLLER_SCRIPT.new()
       _new_weapon.data = module
-      
+
       add_child(_new_weapon)
+
+  modules_changed.emit()
 
 func damage(amount: float) -> void:
   _integrity -= clamp(amount, 0.0, INF)
@@ -57,6 +63,14 @@ func get_damage() -> float:
   
 func get_destroyed() -> float:
   return _destroyed
+
+func remove_module(module: ModuleData) -> void:
+  _integrity_max -= module.structural_integrity
+  _integrity = clamp(_integrity - module.structural_integrity, 1.0, _integrity_max)
+  _mass -= module.weight
+
+  _modules.erase(module)
+  modules_changed.emit()
 
 func set_braking(braking: bool) -> void:
   _braking = braking
@@ -118,8 +132,6 @@ func _process(_delta) -> void:
 
 func _ready() -> void:
   _area2D.area_entered.connect(_on_area2D_area_entered)
-
-  _thrust = THRUST_MIN
 
   for _module in starting_modules:
     add_module(_module)

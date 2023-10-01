@@ -23,5 +23,5 @@ func _ready():
   _buy_button.text = "Buy (%s)" % module.cost
   _module_name_label.text = "Name: %s" % module.name
   _module_type_label.text = "Type: %s" % module.type
-  _module_weight_label.text = "Weight: %s" % module.weight
+  _module_weight_label.text = "Mass: %s" % module.weight
   _module_description_label.text = module.description

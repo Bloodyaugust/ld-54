@@ -283,7 +283,7 @@ text = "Integrity: 1"
 [node name="ShipWeight" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Weight: 1"
+text = "Mass: 1"
 
 [node name="ShipThrust" type="Label" parent="UIRoot/Upgrade/PanelContainer/MarginContainer/HBoxContainer/ShipStats/VBoxContainer"]
 unique_name_in_owner = true
