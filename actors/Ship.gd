@@ -22,6 +22,7 @@ var pid_output: float = 0.0
 
 @onready var _area2D: Area2D = %Area2D
 @onready var _health_bar: Control = %HealthBar
+@onready var _weapons_container: Node2D = %Weapons
 
 var _angular_velocity: float = 0.0
 var _braking: bool = false
@@ -50,7 +51,7 @@ func add_module(module: ModuleData) -> void:
       var _new_weapon = WEAPON_CONTROLLER_SCRIPT.new()
       _new_weapon.data = module
 
-      add_child(_new_weapon)
+      _weapons_container.add_child(_new_weapon)
 
   modules_changed.emit()
 
@@ -68,6 +69,17 @@ func remove_module(module: ModuleData) -> void:
   _integrity_max -= module.structural_integrity
   _integrity = clamp(_integrity - module.structural_integrity, 1.0, _integrity_max)
   _mass -= module.weight
+
+  match module.type:
+    GameConstants.MODULE_TYPES.ENGINE:
+      _thrust -= module.thrust
+    GameConstants.MODULE_TYPES.WEAPON:
+      var _weapons: Array[Node] = _weapons_container.get_children()
+
+      for _weapon in _weapons:
+        if _weapon.data == module:
+          _weapon.queue_free()
+          break
 
   _modules.erase(module)
   modules_changed.emit()

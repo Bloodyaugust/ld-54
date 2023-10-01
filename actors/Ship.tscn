@@ -23,3 +23,6 @@ shape = SubResource("CircleShape2D_15lqi")
 
 [node name="HealthBar" parent="." instance=ExtResource("4_kuxp5")]
 unique_name_in_owner = true
+
+[node name="Weapons" type="Node2D" parent="."]
+unique_name_in_owner = true

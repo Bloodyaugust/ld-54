@@ -25,8 +25,18 @@ func _on_next_wave_pressed() -> void:
 func _on_store_module_bought(module: ModuleData) -> void:
   _player_ship.add_module(module)
 
+func _on_player_module_sold(module: ModuleData) -> void:
+  _player_ship.remove_module(module)
+
 func _on_player_modules_changed() -> void:
   GDUtil.queue_free_children(_ship_modules_list)
+  
+  for _module in _player_ship._modules:
+    var _new_ship_module_component: Control = SHIP_MODULE_COMPONENT.instantiate()
+
+    _new_ship_module_component.sold.connect(_on_player_module_sold)
+    _new_ship_module_component.module = _module
+    _ship_modules_list.add_child(_new_ship_module_component)
 
   _ship_integrity_label.text = "Integrity: %.1f" % _player_ship._integrity_max
   _ship_weight_label.text = "Mass: %.1f" % _player_ship._mass

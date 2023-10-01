@@ -3,7 +3,7 @@ extends Node2D
 var data: ModuleData
 var team: int = 1
 
-@onready var _parent_ship: Node2D = get_parent()
+@onready var _parent_ship: Node2D = $"../../"
 
 var _range_shape: CircleShape2D
 var _target = null
@@ -19,7 +19,7 @@ func _fire() -> void:
   _new_projectile.target = _target.global_position if GDUtil.reference_safe(_target) else Vector2.from_angle(global_rotation) + global_position
   _new_projectile.team = team
 
-  $"../../../".add_child(_new_projectile)
+  $"../../../../".add_child(_new_projectile)
   _time_to_reload = data.reload_time
 
 func _on_target_died() -> void:
