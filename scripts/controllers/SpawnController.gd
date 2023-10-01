@@ -29,6 +29,10 @@ const ENEMY_HEAVY_CANNON_PROJECTILE: Dictionary = {
   "points": 20,
   "scene": preload("res://actors/enemies/QuickKamikaze.tscn"),
 }
+const ENEMY_BOSS_1: Dictionary = {
+  "points": 200,
+  "scene": preload("res://actors/enemies/Boss1.tscn"),
+}
 
 const ENEMY_SCENES: Dictionary = {
   0: [
@@ -83,8 +87,11 @@ const ENEMY_SCENES: Dictionary = {
     ENEMY_ELITE_KAMIKAZE,
     ENEMY_HEAVY_CANNON_PROJECTILE,
   ],
+  10: [
+    ENEMY_BOSS_1,
+  ],
 }
-const MAX_WAVE: int = 9
+const MAX_WAVE: int = 10
 const POINTS_PER_WAVE: int = 10
 const POINTS_PER_WAVE_SCALAR: float = 1.5
 
@@ -97,7 +104,7 @@ var _points_remaining_in_wave: int = POINTS_PER_WAVE
 var _remaining_enemies: int = 0.0
 var _time_to_spawn: float = 0.0
 var _upgrading: bool = false
-var _wave: int = 0
+var _wave: int = 9
 
 func _on_enemy_ship_died() -> void:
   _remaining_enemies -= 1

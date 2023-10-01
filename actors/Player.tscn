@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://vqyckwxhkax0"]
+[gd_scene load_steps=11 format=3 uid="uid://vqyckwxhkax0"]
 
 [ext_resource type="Script" path="res://scripts/controllers/PlayerController.gd" id="1_hg873"]
 [ext_resource type="PackedScene" uid="uid://couplwfrtf7s6" path="res://actors/Ship.tscn" id="2_nnnpa"]
 [ext_resource type="Resource" uid="uid://cifgmmymjs6xl" path="res://data/modules/basic_engine.tres" id="3_k3r4s"]
+[ext_resource type="Resource" uid="uid://dcd4mimpufgk6" path="res://data/modules/nanotech_armor.tres" id="4_3ovlj"]
 [ext_resource type="Theme" uid="uid://co811ue55i33m" path="res://resources/base_theme.tres" id="4_pcx4e"]
-[ext_resource type="Resource" uid="uid://b6vtta7b4mqig" path="res://data/modules/basic_armor.tres" id="4_vajus"]
-[ext_resource type="Resource" uid="uid://bfm3lg884ma35" path="res://data/modules/basic_cannon.tres" id="5_m0ii3"]
+[ext_resource type="Resource" uid="uid://copxh88so4t6q" path="res://data/modules/railgun.tres" id="5_15u3a"]
 [ext_resource type="Texture2D" uid="uid://eriltiaolnvq" path="res://sprites/ships/player.png" id="6_d2e8h"]
+[ext_resource type="Resource" uid="uid://brnbwjgy8xxcs" path="res://data/modules/gatling_cannon.tres" id="6_npece"]
+[ext_resource type="Resource" uid="uid://e8m3gy7nlh44" path="res://data/modules/advanced_engine.tres" id="7_4b6bb"]
 
 [sub_resource type="Curve" id="Curve_owvtl"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -19,7 +21,7 @@ camera_look_distance_curve = SubResource("Curve_owvtl")
 
 [node name="Ship" parent="." groups=["player"] instance=ExtResource("2_nnnpa")]
 unique_name_in_owner = true
-starting_modules = Array[Resource("res://data/module.gd")]([ExtResource("3_k3r4s"), ExtResource("4_vajus"), ExtResource("5_m0ii3")])
+starting_modules = Array[Resource("res://data/module.gd")]([ExtResource("4_3ovlj"), ExtResource("5_15u3a"), ExtResource("6_npece"), ExtResource("7_4b6bb"), ExtResource("4_3ovlj"), ExtResource("3_k3r4s")])
 
 [node name="Sprite2D" parent="Ship" index="0"]
 scale = Vector2(0.45, 0.45)

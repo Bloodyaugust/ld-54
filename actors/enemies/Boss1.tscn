@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=3 uid="uid://baa6mra4v8nvo"]
+
+[ext_resource type="Script" path="res://scripts/controllers/EnemyController.gd" id="1_oi20u"]
+[ext_resource type="Script" path="res://actors/Ship.gd" id="2_imwra"]
+[ext_resource type="Resource" uid="uid://e8m3gy7nlh44" path="res://data/modules/advanced_engine.tres" id="3_ek6sk"]
+[ext_resource type="Resource" uid="uid://cifgmmymjs6xl" path="res://data/modules/basic_engine.tres" id="4_aq7ts"]
+[ext_resource type="Resource" uid="uid://dcd4mimpufgk6" path="res://data/modules/nanotech_armor.tres" id="5_oiobj"]
+[ext_resource type="Resource" uid="uid://brnbwjgy8xxcs" path="res://data/modules/gatling_cannon.tres" id="6_eumbk"]
+[ext_resource type="Resource" uid="uid://b0k21bktgnk86" path="res://data/modules/composite_armor.tres" id="7_iuv3c"]
+[ext_resource type="Resource" uid="uid://clvssjmptwdmn" path="res://data/modules/heavy_cannon.tres" id="8_j12bx"]
+[ext_resource type="Resource" uid="uid://copxh88so4t6q" path="res://data/modules/railgun.tres" id="9_vledd"]
+[ext_resource type="Texture2D" uid="uid://b3pceqxxsaiaq" path="res://sprites/ships/Boss1.png" id="9_xelse"]
+[ext_resource type="Script" path="res://doodads/HealthBar.gd" id="10_ptq3n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m54qx"]
+radius = 62.3939
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_oi20u")
+
+[node name="Ship" type="Node2D" parent="." groups=["enemies"]]
+unique_name_in_owner = true
+script = ExtResource("2_imwra")
+starting_modules = Array[Resource("res://data/module.gd")]([ExtResource("3_ek6sk"), ExtResource("4_aq7ts"), ExtResource("5_oiobj"), ExtResource("6_eumbk"), ExtResource("6_eumbk"), ExtResource("7_iuv3c"), ExtResource("8_j12bx"), ExtResource("5_oiobj"), ExtResource("5_oiobj"), ExtResource("8_j12bx"), ExtResource("4_aq7ts"), ExtResource("9_vledd"), ExtResource("5_oiobj")])
+team = 2
+scrap = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship"]
+scale = Vector2(0.357616, 0.296512)
+texture = ExtResource("9_xelse")
+
+[node name="Area2D" type="Area2D" parent="Ship"]
+unique_name_in_owner = true
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Area2D"]
+shape = SubResource("CircleShape2D_m54qx")
+
+[node name="HealthBar" type="CenterContainer" parent="Ship"]
+unique_name_in_owner = true
+offset_left = -65.0
+offset_top = -87.0
+offset_right = 65.0
+offset_bottom = -67.0
+script = ExtResource("10_ptq3n")
+
+[node name="HealthBarRed" type="ColorRect" parent="Ship/HealthBar"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+color = Color(1, 0, 0.0156863, 1)
+
+[node name="HealthBarGreen" type="ColorRect" parent="Ship/HealthBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+color = Color(0, 1, 0.0156863, 1)
+
+[node name="Weapons" type="Node2D" parent="Ship"]
+unique_name_in_owner = true

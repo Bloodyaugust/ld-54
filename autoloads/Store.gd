@@ -28,7 +28,7 @@ func start_game() -> void:
   set_state("game", GameConstants.GAME_STARTING)
   set_state("kills", 0)
   set_state("wave", 1)
-  set_state("scrap", 0)
+  set_state("scrap", 1000)
   set_state("mass", 0)
   $"/root".add_child(RUN_SCENE.instantiate())
 
