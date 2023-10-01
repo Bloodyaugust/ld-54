@@ -14,16 +14,16 @@ func _process(_delta) -> void:
   text = \"Enemies: %s\" % get_tree().get_nodes_in_group(\"enemies\").filter(func(enemy): return !enemy.get_destroyed()).size()
 "
 
-[sub_resource type="GDScript" id="GDScript_g8pj5"]
+[sub_resource type="GDScript" id="GDScript_4k4id"]
 script/source = "extends Label
 
 func _on_state_changed(state_key, substate):
   match state_key:
-    \"kills\":
-      text = \"Kills: %s\" % substate
+    \"wave\":
+      text = \"wave: %s\" % substate
 
 func _ready():
-  Store.state_changed.connect(_on_state_changed)
+  Store.state_changed.connect(self._on_state_changed)
 "
 
 [sub_resource type="GDScript" id="GDScript_p22lo"]
@@ -116,7 +116,7 @@ script = SubResource("GDScript_tj7yk")
 [node name="Label3" type="Label" parent="UIRoot/FPS/VBoxContainer"]
 layout_mode = 2
 text = "Enemies: 0"
-script = SubResource("GDScript_g8pj5")
+script = SubResource("GDScript_4k4id")
 
 [node name="Splash" type="ColorRect" parent="UIRoot"]
 visible = false

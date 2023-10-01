@@ -1,14 +1,22 @@
 extends Node2D
 
+# Enemies
+const ENEMY_BASIC_KAMIKAZE: Dictionary = {
+  "points": 1,
+  "scene": preload("res://actors/enemies/BasicKamikaze.tscn"),
+}
+
 const ENEMY_SCENES: Dictionary = {
   0: [
-    {
-      "points": 1,
-      "scene": preload("res://actors/enemies/BasicKamikaze.tscn"),
-    },
+    ENEMY_BASIC_KAMIKAZE,
+  ],
+  1: [
+    ENEMY_BASIC_KAMIKAZE,
   ],
 }
+const MAX_WAVE: int = 1
 const POINTS_PER_WAVE: int = 10
+const POINTS_PER_WAVE_SCALAR: float = 1.5
 
 @export var spawn_interval: float
 
@@ -16,8 +24,20 @@ const POINTS_PER_WAVE: int = 10
 
 var _player_dead: bool = false
 var _points_remaining_in_wave: int = POINTS_PER_WAVE
+var _remaining_enemies: int = 0.0
 var _time_to_spawn: float = 0.0
 var _wave: int = 0
+
+func _on_enemy_ship_died() -> void:
+  _remaining_enemies -= 1
+  
+  if _remaining_enemies == 0 && _points_remaining_in_wave <= 0:
+    if _wave == MAX_WAVE:
+      pass
+    else:
+      _wave += 1
+      _points_remaining_in_wave = POINTS_PER_WAVE * (_wave * POINTS_PER_WAVE_SCALAR)
+      Store.set_state("wave", _wave + 1)
 
 func _on_player_ship_died() -> void:
   _player_dead = true
@@ -26,14 +46,17 @@ func _process(delta) -> void:
   if !_player_dead:
     _time_to_spawn -= delta
 
-    if _time_to_spawn <= 0.0:
-      var _new_enemy_dictionary: Node2D = ENEMY_SCENES[_wave].pick_random()
-      var _new_enemy: Node2D = _new_enemy_dictionary.scene.instantiate()
+    if _time_to_spawn <= 0.0 && _points_remaining_in_wave > 0:
+      var _new_enemy_dictionary: Dictionary = ENEMY_SCENES[_wave].pick_random()
+      var _new_enemy: Node2D = _new_enemy_dictionary["scene"].instantiate()
 
+      _new_enemy.get_child(0).died.connect(_on_enemy_ship_died)
       _new_enemy.global_position = Vector2.from_angle(randf_range(-PI, PI)) * randf_range(500.0, 1000.0) + _player_ship.global_position
       $"../".add_child(_new_enemy)
 
+      _points_remaining_in_wave -= _new_enemy_dictionary["points"]
       _time_to_spawn = spawn_interval
+      _remaining_enemies += 1
 
 func _ready() -> void:
   _player_ship.died.connect(_on_player_ship_died)

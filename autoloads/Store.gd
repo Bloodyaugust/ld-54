@@ -12,6 +12,7 @@ var state: Dictionary = {
   "debug": true,
   "kills": 0,
   "player_safe": true,
+  "wave": 1,
  }
 
 func end_game() -> void:
@@ -23,6 +24,7 @@ func start_game() -> void:
   ViewController.set_client_view(ViewController.CLIENT_VIEWS.NONE)
   set_state("game", GameConstants.GAME_STARTING)
   set_state("kills", 0)
+  set_state("wave", 1)
   $"/root".add_child(RUN_SCENE.instantiate())
 
 func save_persistent_store() -> void:
