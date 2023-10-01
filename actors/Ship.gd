@@ -93,6 +93,9 @@ func _on_area2D_area_entered(entering_area: Area2D) -> void:
 
   damage(_entering_area_parent.get_damage())
 
+func _on_modules_changed() -> void:
+  _health_bar.set_health(_integrity / _integrity_max)  
+
 func _physics_process(delta) -> void:
   if !_destroyed && Store.state["game"] == GameConstants.GAME_IN_PROGRESS:
     if _braking:
@@ -141,10 +144,13 @@ func _process(_delta) -> void:
     _area2D.monitorable = false
     _area2D.monitoring = false
     died.emit()
+    modulate = Color.BLACK
+    _health_bar.visible = false
     Store.set_state("kills", Store.state.kills + 1)
     Store.set_state("scrap", Store.state.scrap + scrap)
 
 func _ready() -> void:
+  modules_changed.connect(_on_modules_changed)
   _area2D.area_entered.connect(_on_area2D_area_entered)
 
   for _module in starting_modules:

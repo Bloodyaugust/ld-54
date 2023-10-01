@@ -9,7 +9,7 @@ script = ExtResource("1_w1rrt")
 [node name="Ship" parent="." groups=["enemies"] instance=ExtResource("2_xovsi")]
 unique_name_in_owner = true
 team = 2
-scrap = 2.0
+scrap = 4.0
 
 [node name="Sprite2D" parent="Ship" index="0"]
 modulate = Color(1, 0.0117647, 0.027451, 1)

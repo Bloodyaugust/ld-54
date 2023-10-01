@@ -10,7 +10,8 @@ var _target = null
 var _time_to_reload: float = 0.0
 
 func _draw() -> void:
-  draw_arc(Vector2.ZERO, data.radius, 0.0, 2*PI, 32, Color.GREEN)
+  if !_parent_ship.get_destroyed():
+    draw_arc(Vector2.ZERO, data.radius, 0.0, 2*PI, 32, Color.GREEN)
 
 func _fire() -> void:
   var _new_projectile: Node2D = data.projectile_scene.instantiate()
@@ -54,8 +55,8 @@ func _process(delta) -> void:
     if _time_to_reload <= 0.0:
       _fire()
 
-    if Store.state.debug:
-      queue_redraw()
+  if Store.state.debug:
+    queue_redraw()
 
 func _ready() -> void:
   _range_shape = CircleShape2D.new()

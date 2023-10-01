@@ -12,7 +12,7 @@ script = ExtResource("1_anp7o")
 unique_name_in_owner = true
 starting_modules = Array[Resource("res://data/module.gd")]([ExtResource("3_5wtf1"), ExtResource("4_rqdwf")])
 team = 2
-scrap = 2.0
+scrap = 3.0
 
 [node name="Sprite2D" parent="Ship" index="0"]
 modulate = Color(1, 0.0117647, 0.027451, 1)

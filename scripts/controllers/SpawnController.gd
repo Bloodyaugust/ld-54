@@ -21,6 +21,14 @@ const ENEMY_QUICK_KAMIKAZE: Dictionary = {
   "points": 10,
   "scene": preload("res://actors/enemies/QuickKamikaze.tscn"),
 }
+const ENEMY_GATLING_PROJECTILE: Dictionary = {
+  "points": 15,
+  "scene": preload("res://actors/enemies/QuickKamikaze.tscn"),
+}
+const ENEMY_HEAVY_CANNON_PROJECTILE: Dictionary = {
+  "points": 20,
+  "scene": preload("res://actors/enemies/QuickKamikaze.tscn"),
+}
 
 const ENEMY_SCENES: Dictionary = {
   0: [
@@ -47,17 +55,20 @@ const ENEMY_SCENES: Dictionary = {
     ENEMY_QUICK_KAMIKAZE,
     ENEMY_BEEFY_KAMIKAZE,
     ENEMY_BASIC_PROJECTILE,
+    ENEMY_ELITE_KAMIKAZE,
   ],
   6: [
     ENEMY_QUICK_KAMIKAZE,
     ENEMY_BEEFY_KAMIKAZE,
     ENEMY_BASIC_PROJECTILE,
+    ENEMY_ELITE_KAMIKAZE,
   ],
   7: [
     ENEMY_QUICK_KAMIKAZE,
     ENEMY_BEEFY_KAMIKAZE,
     ENEMY_BASIC_PROJECTILE,
     ENEMY_ELITE_KAMIKAZE,
+    ENEMY_GATLING_PROJECTILE,
   ],
   8: [
     ENEMY_QUICK_KAMIKAZE,
@@ -70,6 +81,7 @@ const ENEMY_SCENES: Dictionary = {
     ENEMY_BEEFY_KAMIKAZE,
     ENEMY_BASIC_PROJECTILE,
     ENEMY_ELITE_KAMIKAZE,
+    ENEMY_HEAVY_CANNON_PROJECTILE,
   ],
 }
 const MAX_WAVE: int = 9
