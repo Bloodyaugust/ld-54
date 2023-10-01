@@ -50,6 +50,9 @@ func add_module(module: ModuleData) -> void:
 
 func get_damage() -> float:
   return _integrity
+  
+func get_destroyed() -> float:
+  return _destroyed
 
 func set_braking(braking: bool) -> void:
   _braking = braking

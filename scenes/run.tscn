@@ -22,7 +22,7 @@ texture = ExtResource("3_jcd7f")
 position = Vector2(-55, 184)
 
 [node name="Enemy2" parent="." instance=ExtResource("5_efuvt")]
-position = Vector2(116, 124)
+position = Vector2(-520, 212)
 
 [node name="Enemy3" parent="." instance=ExtResource("5_efuvt")]
-position = Vector2(94, -27)
+position = Vector2(365, -137)

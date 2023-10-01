@@ -16,11 +16,15 @@ func _fire() -> void:
   var _new_projectile: Node2D = data.projectile_scene.instantiate()
 
   _new_projectile.global_position = _parent_ship.global_position
-  _new_projectile.target = _target.global_position if GDUtil.reference_safe(_target) else Vector2.ZERO
+  _new_projectile.target = _target.global_position if GDUtil.reference_safe(_target) else Vector2.from_angle(global_rotation) + global_position
   _new_projectile.team = team
 
   $"/root".add_child(_new_projectile)
   _time_to_reload = data.reload_time
+
+func _on_target_died() -> void:
+  _target.died.disconnect(_on_target_died)
+  _target = null
 
 func _physics_process(delta) -> void:
   if !GDUtil.reference_safe(_target):
@@ -34,9 +38,13 @@ func _physics_process(delta) -> void:
     
     var _collisions: Array[Dictionary] = get_world_2d().direct_space_state.intersect_shape(_physics_shape_query_params)
     for _collision in _collisions:
-      if _collision.collider.get_parent().has_signal("died"):
+      if _collision.collider.get_parent().has_signal("died") && !_collision.collider.get_parent().get_destroyed():
         _target = _collision.collider.get_parent()
+        _target.died.connect(_on_target_died)
         break
+  elif global_position.distance_to(_target.global_position) > data.range:
+    _target.died.disconnect(_on_target_died)
+    _target = null
 
 func _process(delta) -> void:
   _time_to_reload -= delta
