@@ -3,6 +3,7 @@ extends Node
 const PersistentStore := preload("res://scripts/classes/PersistentStore.gd")
 const RUN_SCENE: PackedScene = preload("res://scenes/run.tscn")
 
+signal next_wave
 signal state_changed(state_key, substate)
 
 var persistent_store:Resource

@@ -26,6 +26,7 @@ var _player_dead: bool = false
 var _points_remaining_in_wave: int = POINTS_PER_WAVE
 var _remaining_enemies: int = 0.0
 var _time_to_spawn: float = 0.0
+var _upgrading: bool = false
 var _wave: int = 0
 
 func _on_enemy_ship_died() -> void:
@@ -38,12 +39,19 @@ func _on_enemy_ship_died() -> void:
       _wave += 1
       _points_remaining_in_wave = POINTS_PER_WAVE * (_wave * POINTS_PER_WAVE_SCALAR)
       Store.set_state("wave", _wave + 1)
+      Store.set_state("game", GameConstants.GAME_UPGRADING)
+      _upgrading = true
+      ViewController.set_client_view(ViewController.CLIENT_VIEWS.UPGRADE)
 
 func _on_player_ship_died() -> void:
   _player_dead = true
 
+func _on_store_next_wave() -> void:
+  _upgrading = false
+  Store.set_state("game", GameConstants.GAME_IN_PROGRESS)  
+
 func _process(delta) -> void:
-  if !_player_dead:
+  if !_player_dead && !_upgrading:
     _time_to_spawn -= delta
 
     if _time_to_spawn <= 0.0 && _points_remaining_in_wave > 0:
@@ -59,4 +67,5 @@ func _process(delta) -> void:
       _remaining_enemies += 1
 
 func _ready() -> void:
+  Store.next_wave.connect(_on_store_next_wave)
   _player_ship.died.connect(_on_player_ship_died)

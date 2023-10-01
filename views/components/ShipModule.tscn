@@ -15,10 +15,6 @@ layout_mode = 2
 layout_mode = 2
 text = "Module Name"
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Module Price"
-
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Module Type"

@@ -7,6 +7,7 @@ enum CLIENT_VIEWS {
   GAME_OVER,
   MAIN_MENU,
   SPLASH,
+  UPGRADE,
   NONE,
 }
 

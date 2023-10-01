@@ -4,7 +4,12 @@
 
 [resource]
 script = ExtResource("1_ljfn7")
+cost = 20
+description = "A lightweight but expensive option to increase your thrust. Integrity of a paperweight."
+name = "Basic Engine"
+radius = 0.0
+reload_time = 0.0
 structural_integrity = 1.0
 thrust = 5.0
 type = 0
-weight = 10.0
+weight = 5.0

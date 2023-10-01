@@ -5,10 +5,13 @@
 
 [resource]
 script = ExtResource("1_unh2b")
+cost = 10
+description = "A simple weapon that slings unguided, low-damage projectiles. Very heavy, adds little integrity."
+name = "Basic Cannon"
 projectile_scene = ExtResource("1_xjbcr")
 radius = 350.0
 reload_time = 0.5
 structural_integrity = 1.0
 thrust = 0.0
 type = 1
-weight = 10.0
+weight = 20.0
