@@ -8,6 +8,7 @@ enum CLIENT_VIEWS {
   MAIN_MENU,
   SPLASH,
   UPGRADE,
+  WIN,
   NONE,
 }
 

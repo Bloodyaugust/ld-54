@@ -104,14 +104,15 @@ var _points_remaining_in_wave: int = POINTS_PER_WAVE
 var _remaining_enemies: int = 0.0
 var _time_to_spawn: float = 0.0
 var _upgrading: bool = false
-var _wave: int = 9
+var _wave: int = 0
 
 func _on_enemy_ship_died() -> void:
   _remaining_enemies -= 1
   
   if _remaining_enemies == 0 && _points_remaining_in_wave <= 0:
     if _wave == MAX_WAVE:
-      pass
+      Store.set_state("game", GameConstants.GAME_OVER)
+      ViewController.set_client_view(ViewController.CLIENT_VIEWS.WIN)
     else:
       _wave += 1
       _points_remaining_in_wave = POINTS_PER_WAVE * (_wave * POINTS_PER_WAVE_SCALAR)

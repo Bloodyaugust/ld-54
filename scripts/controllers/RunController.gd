@@ -11,6 +11,14 @@ func _on_player_died() -> void:
   Store.end_game()
   queue_free()
 
+func _on_store_state_changed(state_key, substate) -> void:
+  match state_key:
+    "game":
+      match substate:
+        GameConstants.GAME_OVER:
+          queue_free()
+
 func _ready():
+  Store.state_changed.connect(_on_store_state_changed)
   _player.died.connect(_on_player_died)
   (func(): Store.set_state("game", GameConstants.GAME_IN_PROGRESS)).call_deferred()

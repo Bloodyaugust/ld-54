@@ -10,7 +10,7 @@ var _target = null
 var _time_to_reload: float = 0.0
 
 func _draw() -> void:
-  if !_parent_ship.get_destroyed():
+  if !_parent_ship.get_destroyed() && Store.state.debug:
     draw_arc(Vector2.ZERO, data.radius, 0.0, 2*PI, 32, Color.GREEN)
 
 func _fire() -> void:

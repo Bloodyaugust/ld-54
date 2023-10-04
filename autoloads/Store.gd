@@ -10,7 +10,7 @@ var persistent_store:Resource
 var state: Dictionary = {
   "client_view": ViewController.CLIENT_VIEWS.NONE,
   "game": "",
-  "debug": true,
+  "debug": false,
   "kills": 0,
   "player_safe": true,
   "wave": 1,
@@ -21,15 +21,15 @@ var state: Dictionary = {
 func end_game() -> void:
   ViewController.set_client_view(ViewController.CLIENT_VIEWS.MAIN_MENU, ViewController.TRANSITION_TYPES.FADE)
   set_state("game", GameConstants.GAME_OVER)
-  set_state("player_safe", true)
 
 func start_game() -> void:
   ViewController.set_client_view(ViewController.CLIENT_VIEWS.NONE)
   set_state("game", GameConstants.GAME_STARTING)
   set_state("kills", 0)
   set_state("wave", 1)
-  set_state("scrap", 1000)
+  set_state("scrap", 0)
   set_state("mass", 0)
+  set_state("player_safe", true)
   $"/root".add_child(RUN_SCENE.instantiate())
 
 func save_persistent_store() -> void:
